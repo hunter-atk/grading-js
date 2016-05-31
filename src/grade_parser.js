@@ -1,7 +1,3 @@
-window.GradeParser = {
-
-  getMovements: function (grades) {
-    return [];
-  }
-
-};
+exports.getMovements = function (grades) {
+  return [];
+}
