@@ -26,11 +26,16 @@ NOTE: your array tracks the differences between grades, so it will be one item _
 ## Challenge 2 - Finding students in decline
 
 A student is considered in decline if they have 3 grades lower than previous grades, even if there are some steady
-grades in there.  For example:
+grades in there.  Look for 3 "down" movements that are either a) separated by "even"s or b) consecutive.
+
+For example:
 
 ```javascript
 [10, 10, 10, 9, 9, 8, 8, 8, 8, 7] // ["even", "even", "down", "even", "down", "even", "even", "even", "down"]
 [10, 10, 10, 9, 9, 8, 8, 8, 8, 7] // in decline
+
+[10, 10, 10, 11, 9, 8, 8, 8, 8, 7] // ["even", "even", "up", "even", "down", "even", "even", "even", "down"]
+[10, 10, 10, 11, 9, 8, 8, 8, 8, 7] // not in decline
 
 [10, 9, 8, 7] // ["down", "down", "down"]
 [10, 9, 8, 7] // in decline
