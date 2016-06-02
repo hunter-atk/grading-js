@@ -1,15 +1,17 @@
-exports.getMovements = function (grades) {
-  let result = []
-  for (var i = 1; i < grades.length; i++) {
-    if (grades[i] < grades[i - 1]) {
-      result.push('down')
-    } else if (grades[i] > grades[i - 1]) {
-      result.push('up')
-    } else {
-      result.push('even')
-    }
+exports.getMovements = function getMovements(grades, i = 1) {
+  if(grades.length < 2) return [];
+
+  if (i === grades.length - 1) {
+    return [getDirection(grades, i)];
+  } else {
+    return [getDirection(grades, i)].concat(getMovements(grades, i + 1));
   }
-  return result;
+}
+
+function getDirection(grades, i) {
+  if (grades[i] < grades[i - 1]) return 'down'
+  else if (grades[i] > grades[i - 1]) return 'up'
+  return 'even'
 }
 
 exports.inDecline = function (grades) {
