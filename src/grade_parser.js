@@ -1,3 +1,5 @@
 exports.getMovements = function (grades) {
-  return [];
+}
+
+exports.inDecline = function (grades) {
 }
