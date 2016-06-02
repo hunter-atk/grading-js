@@ -1,26 +1,38 @@
-exports.getMovements = function getMovements(grades, i = 1) {
-  if(grades.length < 2) return [];
+module.exports = {
+  getMovements,
+  inDecline
+}
 
-  if (i === grades.length - 1) {
-    return [getDirection(grades, i)];
-  } else {
-    return [getDirection(grades, i)].concat(getMovements(grades, i + 1));
-  }
+function getMovements(grades, i = 1) {
+  if(grades.length < 2) return []
+  if (i === grades.length - 1) return [getDirection(grades, i)]
+  return [getDirection(grades, i)].concat(getMovements(grades, i + 1))
+}
+
+function inDecline(grades) {
+  return streakOfThree( nonEvenGrades(grades) )
+}
+
+// ----------
+
+function nonEvenGrades(grades) {
+  return getMovements(grades).filter(nonEven)
 }
 
 function getDirection(grades, i) {
   if (grades[i] < grades[i - 1]) return 'down'
-  else if (grades[i] > grades[i - 1]) return 'up'
+  if (grades[i] > grades[i - 1]) return 'up'
   return 'even'
 }
 
-exports.inDecline = function (grades) {
-  let movements = this.getMovements(grades)
-  let counter = 0
-  for (var i = movements.length; i--;) {
-    if (movements[i] == 'down') counter++
-    if (movements[i] == 'up') counter = 0
-    if (counter === 3) return true
-  }
-  return false
+function streakOfThree(array) {
+  return array.length >= 3 && array.slice(-3).every(isDown)
+}
+
+function nonEven(element) {
+  return element !== 'even'
+}
+
+function isDown(element) {
+  return element === 'down'
 }
