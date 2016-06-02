@@ -8,4 +8,4 @@ for (var key in data) {
   }
 }
 
-console.log(counter);
+console.log(`There are ${counter} students in decline`);

@@ -16,8 +16,8 @@ exports.inDecline = function (grades) {
   let movements = this.getMovements(grades)
   let counter = 0
   for (var i = movements.length; i--;) {
+    if (movements[i] == 'up' && counter < 3) return false
     if (movements[i] == 'down') counter++
-    if (movements[i] == 'up') counter = 0
     if (counter === 3) return true
   }
   return false
