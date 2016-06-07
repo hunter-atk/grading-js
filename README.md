@@ -34,8 +34,8 @@ For example:
 [10, 10, 10, 9, 9, 8, 8, 8, 8, 7] // ["even", "even", "down", "even", "down", "even", "even", "even", "down"]
 [10, 10, 10, 9, 9, 8, 8, 8, 8, 7] // in decline
 
-[10, 10, 10, 11, 9, 8, 8, 8, 8, 7] // ["even", "even", "up", "even", "down", "even", "even", "even", "down"]
-[10, 10, 10, 11, 9, 8, 8, 8, 8, 7] // not in decline
+[10, 10, 10, 9, 10, 8, 8, 8, 8, 7] // ["even", "even", "down", "up", "down", "even", "even", "even", "down"]
+[10, 10, 10, 9, 10, 8, 8, 8, 8, 7] // not in decline
 
 [10, 9, 8, 7] // ["down", "down", "down"]
 [10, 9, 8, 7] // in decline
